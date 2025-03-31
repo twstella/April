@@ -161,7 +161,7 @@ if uploaded_file:
                 answer = selected_row["answer"]
                 a_keywords = safe_eval(selected_row["answer_keywords"])
                 print(a_keywords)
-                # 다음 카테고리 내 등장 키워드 집합 (현재 단계가 마지막이 아니면)
+               
                 if i + 1 < len(category_sequence):
                     next_cat = category_sequence[i + 1]
                     next_q_keywords = set()
@@ -169,8 +169,9 @@ if uploaded_file:
                     for kw_list in next_df["question_keywords"].dropna():
                         next_q_keywords.update(safe_eval(kw_list))
 
-                    # a_keywords 중에서 다음 질문과 겹치는 키워드만 남김
-                    valid_next_keywords = [kw for kw in a_keywords if kw not in used_keywords and kw in next_q_keywords]
+                    
+                    # valid_next_keywords = [kw for kw in a_keywords if kw not in used_keywords and kw in next_q_keywords]
+                    valid_next_keywords = [kw for kw in a_keywords if kw not in used_keywords]
                 else:
                     valid_next_keywords = [kw for kw in a_keywords if kw not in used_keywords]
 

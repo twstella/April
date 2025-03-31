@@ -160,7 +160,7 @@ if uploaded_file:
                 question = selected_row["question"]
                 answer = selected_row["answer"]
                 a_keywords = safe_eval(selected_row["answer_keywords"])
-
+                print(a_keywords)
                 # 다음 카테고리 내 등장 키워드 집합 (현재 단계가 마지막이 아니면)
                 if i + 1 < len(category_sequence):
                     next_cat = category_sequence[i + 1]
